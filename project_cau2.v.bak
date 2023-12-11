@@ -1,0 +1,31 @@
+module Freq_Divide(input CLOCK_50, input [1:0] SW, output reg CLK); 
+	reg [24:0] counter; 
+		always @(posedge CLOCK_50) 
+		begin
+			counter <= counter + 1'b1; 
+			CLK <= (SW == 2'b00) ? counter[24] : 
+						 (SW == 2'b01) ? counter[23] : 
+						 (SW == 2'b10) ? counter[22] : counter[21]; 
+		end
+endmodule 
+
+module project_cau2(CLK_50, Speed_SW, Shift_BTN, LEDR);
+	input CLK_50;
+	input [1:0] Speed_SW;
+	input Shift_BTN;
+	output reg [7:0] LEDR = 8'b10000000;
+	wire CLK;
+	reg Right = 1'b1;
+
+	Freq_Divide U1(.CLOCK_50(CLK_50), .SW(Speed_SW), .CLK(CLK));
+	
+	always @(posedge Shift_BTN)
+		Right <= ~Right;
+
+	always @(posedge CLK)
+		if(Right == 1'b1)
+			LEDR <= {LEDR[0], LEDR[7:1]}; // Dich trai sang phai
+		else if(Right == 1'b0)
+			LEDR <= {LEDR[6:0], LEDR[7]};	// Dich phai sang trai	
+			
+endmodule

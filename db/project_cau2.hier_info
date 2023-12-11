@@ -1,0 +1,159 @@
+|project_cau2
+CLOCK_50 => CLOCK_50.IN2
+BUTTON[0] => BUTTON[0].IN1
+BUTTON[1] => BUTTON[1].IN1
+HEX0[6] <= Decoder:Seconds.LED_donvi
+HEX0[5] <= Decoder:Seconds.LED_donvi
+HEX0[4] <= Decoder:Seconds.LED_donvi
+HEX0[3] <= Decoder:Seconds.LED_donvi
+HEX0[2] <= Decoder:Seconds.LED_donvi
+HEX0[1] <= Decoder:Seconds.LED_donvi
+HEX0[0] <= Decoder:Seconds.LED_donvi
+HEX1[6] <= Decoder:Seconds.LED_chuc
+HEX1[5] <= Decoder:Seconds.LED_chuc
+HEX1[4] <= Decoder:Seconds.LED_chuc
+HEX1[3] <= Decoder:Seconds.LED_chuc
+HEX1[2] <= Decoder:Seconds.LED_chuc
+HEX1[1] <= Decoder:Seconds.LED_chuc
+HEX1[0] <= Decoder:Seconds.LED_chuc
+HEX2[6] <= Decoder:Minutes.LED_donvi
+HEX2[5] <= Decoder:Minutes.LED_donvi
+HEX2[4] <= Decoder:Minutes.LED_donvi
+HEX2[3] <= Decoder:Minutes.LED_donvi
+HEX2[2] <= Decoder:Minutes.LED_donvi
+HEX2[1] <= Decoder:Minutes.LED_donvi
+HEX2[0] <= Decoder:Minutes.LED_donvi
+HEX3[6] <= Decoder:Minutes.LED_chuc
+HEX3[5] <= Decoder:Minutes.LED_chuc
+HEX3[4] <= Decoder:Minutes.LED_chuc
+HEX3[3] <= Decoder:Minutes.LED_chuc
+HEX3[2] <= Decoder:Minutes.LED_chuc
+HEX3[1] <= Decoder:Minutes.LED_chuc
+HEX3[0] <= Decoder:Minutes.LED_chuc
+
+
+|project_cau2|CLK1HZ:Clock_1Hz
+CLOCK_50 => counter[0].CLK
+CLOCK_50 => counter[1].CLK
+CLOCK_50 => counter[2].CLK
+CLOCK_50 => counter[3].CLK
+CLOCK_50 => counter[4].CLK
+CLOCK_50 => counter[5].CLK
+CLOCK_50 => counter[6].CLK
+CLOCK_50 => counter[7].CLK
+CLOCK_50 => counter[8].CLK
+CLOCK_50 => counter[9].CLK
+CLOCK_50 => counter[10].CLK
+CLOCK_50 => counter[11].CLK
+CLOCK_50 => counter[12].CLK
+CLOCK_50 => counter[13].CLK
+CLOCK_50 => counter[14].CLK
+CLOCK_50 => counter[15].CLK
+CLOCK_50 => counter[16].CLK
+CLOCK_50 => counter[17].CLK
+CLOCK_50 => counter[18].CLK
+CLOCK_50 => counter[19].CLK
+CLOCK_50 => counter[20].CLK
+CLOCK_50 => counter[21].CLK
+CLOCK_50 => counter[22].CLK
+CLOCK_50 => counter[23].CLK
+CLOCK_50 => counter[24].CLK
+CLOCK_50 => counter[25].CLK
+CLOCK_50 => CLK_1HZ.CLK
+CLK <= CLK_1HZ.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|project_cau2|Counter:SecMinCounter
+CLOCK_50 => timer_event[0].CLK
+CLOCK_50 => timer_event[1].CLK
+CLOCK_50 => state_button[1].CLK
+CLOCK_1HZ => state_button[0].CLK
+CLOCK_1HZ => sec_cnt[0].CLK
+CLOCK_1HZ => sec_cnt[1].CLK
+CLOCK_1HZ => sec_cnt[2].CLK
+CLOCK_1HZ => sec_cnt[3].CLK
+CLOCK_1HZ => sec_cnt[4].CLK
+CLOCK_1HZ => sec_cnt[5].CLK
+CLOCK_1HZ => min_cnt[0].CLK
+CLOCK_1HZ => min_cnt[1].CLK
+CLOCK_1HZ => min_cnt[2].CLK
+CLOCK_1HZ => min_cnt[3].CLK
+CLOCK_1HZ => min_cnt[4].CLK
+CLOCK_1HZ => min_cnt[5].CLK
+BUTTON[0] => always0.IN0
+BUTTON[0] => timer_event.OUTPUTSELECT
+BUTTON[1] => timer_event.OUTPUTSELECT
+BUTTON[1] => always0.IN1
+BUTTON[1] => state_button[1].DATAIN
+sec[0] <= sec_cnt[0].DB_MAX_OUTPUT_PORT_TYPE
+sec[1] <= sec_cnt[1].DB_MAX_OUTPUT_PORT_TYPE
+sec[2] <= sec_cnt[2].DB_MAX_OUTPUT_PORT_TYPE
+sec[3] <= sec_cnt[3].DB_MAX_OUTPUT_PORT_TYPE
+sec[4] <= sec_cnt[4].DB_MAX_OUTPUT_PORT_TYPE
+sec[5] <= sec_cnt[5].DB_MAX_OUTPUT_PORT_TYPE
+min[0] <= min_cnt[0].DB_MAX_OUTPUT_PORT_TYPE
+min[1] <= min_cnt[1].DB_MAX_OUTPUT_PORT_TYPE
+min[2] <= min_cnt[2].DB_MAX_OUTPUT_PORT_TYPE
+min[3] <= min_cnt[3].DB_MAX_OUTPUT_PORT_TYPE
+min[4] <= min_cnt[4].DB_MAX_OUTPUT_PORT_TYPE
+min[5] <= min_cnt[5].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|project_cau2|Decoder:Seconds
+Result[0] => Mod0.IN9
+Result[0] => Div0.IN9
+Result[1] => Mod0.IN8
+Result[1] => Div0.IN8
+Result[2] => Mod0.IN7
+Result[2] => Div0.IN7
+Result[3] => Mod0.IN6
+Result[3] => Div0.IN6
+Result[4] => Mod0.IN5
+Result[4] => Div0.IN5
+Result[5] => Mod0.IN4
+Result[5] => Div0.IN4
+LED_donvi[6] <= LED_donvi.DB_MAX_OUTPUT_PORT_TYPE
+LED_donvi[5] <= LED_donvi.DB_MAX_OUTPUT_PORT_TYPE
+LED_donvi[4] <= LED_donvi.DB_MAX_OUTPUT_PORT_TYPE
+LED_donvi[3] <= LED_donvi.DB_MAX_OUTPUT_PORT_TYPE
+LED_donvi[2] <= LED_donvi.DB_MAX_OUTPUT_PORT_TYPE
+LED_donvi[1] <= LED_donvi.DB_MAX_OUTPUT_PORT_TYPE
+LED_donvi[0] <= LED_donvi.DB_MAX_OUTPUT_PORT_TYPE
+LED_chuc[6] <= LED_chuc.DB_MAX_OUTPUT_PORT_TYPE
+LED_chuc[5] <= LED_chuc.DB_MAX_OUTPUT_PORT_TYPE
+LED_chuc[4] <= LED_chuc.DB_MAX_OUTPUT_PORT_TYPE
+LED_chuc[3] <= LED_chuc.DB_MAX_OUTPUT_PORT_TYPE
+LED_chuc[2] <= LED_chuc.DB_MAX_OUTPUT_PORT_TYPE
+LED_chuc[1] <= LED_chuc.DB_MAX_OUTPUT_PORT_TYPE
+LED_chuc[0] <= LED_chuc.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|project_cau2|Decoder:Minutes
+Result[0] => Mod0.IN9
+Result[0] => Div0.IN9
+Result[1] => Mod0.IN8
+Result[1] => Div0.IN8
+Result[2] => Mod0.IN7
+Result[2] => Div0.IN7
+Result[3] => Mod0.IN6
+Result[3] => Div0.IN6
+Result[4] => Mod0.IN5
+Result[4] => Div0.IN5
+Result[5] => Mod0.IN4
+Result[5] => Div0.IN4
+LED_donvi[6] <= LED_donvi.DB_MAX_OUTPUT_PORT_TYPE
+LED_donvi[5] <= LED_donvi.DB_MAX_OUTPUT_PORT_TYPE
+LED_donvi[4] <= LED_donvi.DB_MAX_OUTPUT_PORT_TYPE
+LED_donvi[3] <= LED_donvi.DB_MAX_OUTPUT_PORT_TYPE
+LED_donvi[2] <= LED_donvi.DB_MAX_OUTPUT_PORT_TYPE
+LED_donvi[1] <= LED_donvi.DB_MAX_OUTPUT_PORT_TYPE
+LED_donvi[0] <= LED_donvi.DB_MAX_OUTPUT_PORT_TYPE
+LED_chuc[6] <= LED_chuc.DB_MAX_OUTPUT_PORT_TYPE
+LED_chuc[5] <= LED_chuc.DB_MAX_OUTPUT_PORT_TYPE
+LED_chuc[4] <= LED_chuc.DB_MAX_OUTPUT_PORT_TYPE
+LED_chuc[3] <= LED_chuc.DB_MAX_OUTPUT_PORT_TYPE
+LED_chuc[2] <= LED_chuc.DB_MAX_OUTPUT_PORT_TYPE
+LED_chuc[1] <= LED_chuc.DB_MAX_OUTPUT_PORT_TYPE
+LED_chuc[0] <= LED_chuc.DB_MAX_OUTPUT_PORT_TYPE
+
+
